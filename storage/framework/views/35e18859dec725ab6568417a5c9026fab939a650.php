@@ -27,7 +27,7 @@
                                 <input type="email" id="typeEmailX" placeholder="Email" class="form-control form-control-lg"/>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" placeholder="Password" class="form-control form-control-lg"/>
+                                <input type="password" id="typePasswordX" placeholder="Contrasenya" class="form-control form-control-lg"/>
                             </div>
                             <div>
                                 <p class="mb-0">No tens compte? <a href="<?php echo e(url('/register')); ?>" class="text-white-50 fw-bold">Registra't</a>

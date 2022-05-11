@@ -1,7 +1,7 @@
 @extends('modal')
 @section('content')
     <div class="container">
-        <h1 class="text-center my-5">Vista de Jocs</h1>
+        <h1 class="text-center my-5">Llista de jocs</h1>
         <table class="table table-dark table-bordered">
             <tr class="thead-dark">
                 <th>Nom</th>
@@ -9,7 +9,7 @@
                 <th>Email</th>
                 <th>Telèfon</th>
                 <th>País</th>
-                <th><a class="btn btn-success" href={{url('/games/newGame')}}>Crear Joc</a></th>
+                <th><a class="btn btn-success float-lg-end" href={{url('/games/newGame')}}>Crear Joc</a></th>
             </tr>
             @foreach($games as $game)
                 <tr>

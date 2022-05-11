@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title></title>
 </head>
 <body>
 <style>
@@ -23,21 +24,46 @@
                     <div class="card-body p-5 text-center">
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <h2 class="fw-bold mb-2">REGISTRE</h2><br><br>
-                            <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX" placeholder="Email" class="form-control form-control-lg"/>
-                            </div>
-                            <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" placeholder="Password" class="form-control form-control-lg"/>
-                            </div>
-                            <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" placeholder="Repeat Password" class="form-control form-control-lg"/>
-                            </div>
-                            <div>
-                                <p class="mb-0">Ja tens un compte? <a href="{{url('/login')}}" class="text-white-50 fw-bold">Inicia Sessió</a>
-                                </p>
-                            </div>
+                            <form method="post" action="{{url("/users/createSendRegister")}}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline datepicker">
+                                            <input type="text" id="name" name="name" placeholder="Nom"
+                                                   class="form-control form-control-lg"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline datepicker">
+                                            <input type="text" id="surname" name="surname" placeholder="Cognom"
+                                                   class="form-control form-control-lg"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                    <input type="email" id="email" name="email" placeholder="Email"
+                                           class="form-control form-control-lg"/>
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" id="username" name="username" placeholder="Nom Usuari"
+                                           class="form-control form-control-lg"/>
+                                </div>
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" id="password" name="password" placeholder="Contrasenya"
+                                           class="form-control form-control-lg"/>
+                                </div>
+                                <div>
+                                    <p class="mb-0">Ja tens un compte? <a href="{{url('/login')}}"
+                                                                          class="text-white-50 fw-bold">Inicia
+                                            Sessió</a><br><br>
+                                    </p>
+                                </div>
+                                <a class="btn  btn-outline-light btn-lg px-5" href="{{ url('/welcome') }}"
+                                   type="submit">Torna
+                                    Enrere</a>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Registra</button>
+                            </form>
                         </div>
-                        <button class="btn btn-outline-light btn-lg px-5" type="submit">Registra</button>
                     </div>
                 </div>
             </div>

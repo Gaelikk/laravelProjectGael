@@ -16,7 +16,7 @@ class GameFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    #[ArrayShape(['name' => "string", 'description' => "string", 'completed' => "false"])] public function definition(): array
     {
         return [
             'name' => $this->faker->sentence(4),

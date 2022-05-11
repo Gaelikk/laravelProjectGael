@@ -16,7 +16,7 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    #[ArrayShape(['name' => "string", 'email' => "string", 'email_verified_at' => "\Illuminate\Support\Carbon", 'password' => "string", 'remember_token' => "string"])] public function definition(): array
     {
         return [
             'name' => $this->faker->name(),

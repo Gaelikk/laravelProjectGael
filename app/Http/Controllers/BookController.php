@@ -3,54 +3,69 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Room;
+use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 
 class BookController extends Controller
 {
-    public function allBooks()
+    public function all(): Factory|View|Application
     {
-        return view("books/books", [
+        return view("books/bookList", [
             "books" => Book::all()
         ]);
     }
 
-    public function edit($id)
+    public function allUsers(): Factory|View|Application
     {
-        return view('books/editBook', [
-            'book' => Book::findOrFail($id)
+        return view("books/newBook", [
+            "users" => User::all(),
+            "rooms" => Room::all()
         ]);
     }
 
-    public function editBook($id, Request $request)
+
+    public function edit($id): Factory|View|Application
+    {
+        return view('books/editBook', [
+            'reserva' => Book::findOrFail($id),
+            "users" => User::all(),
+            "rooms" => Room::all()
+        ]);
+    }
+
+    public function editSend($id, Request $request): Redirector|Application|RedirectResponse
     {
         $book = Book::findOrFail($id);
-        $book->name = $request->name;
-        $book->mail = $request->mail;
-        $book->phoneNumber = $request->phoneNumber;
-        $book->country = $request->country;
-        $book->username = $request->username;
         $book->room = $request->room;
+        $book->game = $request->game;
+        $book->user = $request->user;
+        $book->data = $request->data;
         $book->save();
-        return redirect('books');
+
+        return redirect('bookList');
     }
 
-    public function newBook(Request $request)
+    public function createSend(Request $request): Redirector|Application|RedirectResponse
     {
         $book = new Book();
-        $book->name = $request->name;
-        $book->mail = $request->mail;
-        $book->phoneNumber = $request->phoneNumber;
-        $book->country = $request->country;
-        $book->username = $request->username;
         $book->room = $request->room;
+        $book->game = $request->game;
+        $book->user = $request->user;
+        $book->data = $request->data;
         $book->save();
-        return redirect('books');
+        return redirect('bookList');
     }
 
-    public function delete($id)
+    public function delete($id): Redirector|Application|RedirectResponse
     {
         $book = Book::findOrFail($id);
         $book->delete();
-        return redirect('books');
+        return redirect('bookList');
     }
 }

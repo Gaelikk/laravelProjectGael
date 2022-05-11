@@ -1,44 +1,40 @@
-@extends('welcome')
-@section('titol')
-    Editar Usuari
-@endsection
+@extends('modal')
 @section('content')
-    <h1 class="text-center my-5">Edició Usuari</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-default">
-                <div class="card-header">Editar Usuari</div>
-                <div class="card-body">
-                    @if($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="list-group">
-                                @foreach($errors->all() as $error)
-                                    <li class="list-group-item">
-                                        {{$error}}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form action="/games/{{$game->id}}/update-game" method="POST">
-                        @csrf
-                        <div class="form-group mb-1">
-                            <input type="text" class="form-control" name="name" id="name"
-                                   value="{{old('name', $game->name)}}"
-                                   placeholder="Name"><input>
-                        </div>
-                        <div class="form-group mb-1">
-                            <textarea name="description" id="description" cols="5" rows="5" class="control-form"
-                                      placeholder="Descripció">{{old('description', $game->description)}}</textarea>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-success" type="submit">
-                                Actualitzar Joc
-                            </button>
-                        </div>
-                    </form>
-                </div>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="col-5 bg-light border rounded">
+            <div class="row p-3">
+                <h2 class="text-center my-2">Edita Usuari</h2>
+                <form method="post" action="{{url("/users/editSend/$user->id")}}">
+                    @csrf
+                    <div class="form-group">
+                        <h5>Nom</h5>
+                        <input class="form-control" id="gameName" name="name" type="text" value="{{$user->name}}"><br>
+                    </div>
+                    <div class="form-group">
+                        <h5>Cognom</h5>
+                        <input class="form-control" id="usernameSurname" name="surname" type="text"
+                               value="{{$user->surname}}"><br>
+                    </div>
+                    <div class="form-group">
+                        <h5>Email</h5>
+                        <input class="form-control" type="email" id="usernameEmail" name="email"
+                               value="{{$user->email}}"
+                               placeholder="EMAIL"><br>
+                    </div>
+                    <div class="form-group">
+                        <h5>Username</h5>
+                        <input class="form-control" type="text" id="usernameRegister" name="username"
+                               value="{{$user->username}}"><br>
+                    </div>
+                    <div class="form-group">
+                        <h5>Contrasenya</h5>
+                        <input class="form-control" type="password" id="passwordRegister" name="password"
+                               value="{{$user->password}}" placeholder="PASSWORD"><br><br>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <span><a class="btn btn-danger" href={{url('/userList')}} type="button">Cancelar</a></span>
+                </form>
             </div>
         </div>
-    </div>
 @endsection

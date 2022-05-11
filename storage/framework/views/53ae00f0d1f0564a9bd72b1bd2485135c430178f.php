@@ -1,6 +1,3 @@
-<?php $__env->startSection('titol'); ?>
-    Nou Joc
-<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
     <div class="container d-flex justify-content-center mt-5">
         <div class="col-6 bg-light border rounded">
@@ -17,9 +14,13 @@
                         <input class="form-control" type="text">
                         <h6 class="text-danger"></h6>
                     </div>
-                    <input name="idPlan" type="hidden">
+                    <div class="form-group">
+                        <label>Repeteix la contrasenya</label>
+                        <input class="form-control" type="text">
+                        <h6 class="text-danger"></h6>
+                    </div>
                     <button class="btn btn-primary" type="submit">Guardar</button>
-                    <span><a class="btn btn-danger" href=<?php echo e(url('/users/users')); ?> type="button">Cancelar</a></span>
+                    <span><a class="btn btn-danger" href=<?php echo e(url('/users')); ?> type="button">Cancelar</a></span>
                 </form>
             </div>
         </div>

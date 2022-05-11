@@ -23,17 +23,39 @@
                     <div class="card-body p-5 text-center">
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <h2 class="fw-bold mb-2">REGISTRE</h2><br><br>
-                            <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX" placeholder="Email" class="form-control form-control-lg"/>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline datepicker">
+                                        <input type="email" id="typeEmailX" placeholder="Nom"
+                                               class="form-control form-control-lg"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline datepicker">
+                                        <input type="email" id="typeEmailX" placeholder="Cognom"
+                                               class="form-control form-control-lg"/>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" placeholder="Password" class="form-control form-control-lg"/>
+                                <input type="email" id="typeEmailX" placeholder="Email"
+                                       class="form-control form-control-lg"/>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" placeholder="Repeat Password" class="form-control form-control-lg"/>
+                                <input type="password" id="typePasswordX" placeholder="Nom Usuari"
+                                       class="form-control form-control-lg"/>
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="typePasswordX" placeholder="Contrasenya"
+                                       class="form-control form-control-lg"/>
+                            </div>
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="typePasswordX" placeholder="Repeteix Contrasenya"
+                                       class="form-control form-control-lg"/>
                             </div>
                             <div>
-                                <p class="mb-0">Ja tens un compte? <a href="<?php echo e(url('/login')); ?>" class="text-white-50 fw-bold">Inicia Sessió</a>
+                                <p class="mb-0">Ja tens un compte? <a href="<?php echo e(url('/login')); ?>"
+                                                                      class="text-white-50 fw-bold">Inicia Sessió</a>
                                 </p>
                             </div>
                         </div>
@@ -44,6 +66,27 @@
         </div>
     </div>
 </section>
+
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-8 col-xl-6">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline datepicker">
+                        <input type="text" class="form-control" id="exampleDatepicker1"/>
+                        <label for="exampleDatepicker1" class="form-label">Select a date</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline datepicker">
+                        <input type="text" class="form-control" id="exampleDatepicker1"/>
+                        <label for="exampleDatepicker1" class="form-label">Select a date</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
